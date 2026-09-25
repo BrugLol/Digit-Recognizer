@@ -123,19 +123,13 @@ void BFSBoard(vector<vector <int>> board, vector<vector <double>>& nBoard) {
     }
 }
 
-double epoch(vector<neuron>& n, vector<vector<vector<double>>>& allNoiseBoards) {
-    double target;
-
-    
+void epoch(vector<neuron>& n, vector<vector<vector<double>>>& allNoiseBoards) {
     for (int digit = 0; digit < 10; digit++) {
         for (int neuronId = 0; neuronId < 10; neuronId++) {
             double target = (neuronId == digit) ? 1.0 : 0.0;
             n[neuronId].train(allNoiseBoards[digit], target, 0.1);
         }
     }
-
-    
-    return target;
 }
 
 
